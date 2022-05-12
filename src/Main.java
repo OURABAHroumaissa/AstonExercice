@@ -1,6 +1,7 @@
 import fr.or.dao.Profit;
 import fr.or.exo7.Somme;
 import fr.or.exo8.Student;
+import fr.or.tools.Tools;
 
 import java.util.Scanner;
 
