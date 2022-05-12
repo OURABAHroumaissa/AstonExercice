@@ -1,4 +1,5 @@
 import fr.or.dao.Profit;
+import fr.or.exo10.Point;
 import fr.or.exo7.Somme;
 import fr.or.exo8.Student;
 import fr.or.exo9.NombreComplex;
@@ -63,6 +64,7 @@ public class Main {
 
         st.show();*/
 
+/*       EXERCICE 09
 
         NombreComplex nb1 = new NombreComplex();
         NombreComplex nb2 = new NombreComplex();
@@ -75,7 +77,35 @@ public class Main {
         nb2.setPartieReelle(Tools.saisirNombre("Veuillez entrer la partie Réelle : "));
         nb2.setPartieImaginaire(Tools.saisirNombre("Veuillez entrer la partie Imaginaire : "));
 
-        nb1.claculSomme(nb2);
+        nb1.claculSomme(nb2);*/
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Point 1 : ");
+
+        Point p1 = new Point();
+
+        System.out.print(" x= ");
+
+        p1.setX(Integer.valueOf(sc.nextLine()));
+
+        System.out.print(" y= ");
+
+        p1.setY(Integer.valueOf(sc.nextLine()));
+
+        System.out.println("Point 2 : ");
+
+        Point p2 = new Point();
+
+        System.out.print(" x= ");
+
+        p2.setX(Integer.valueOf(sc.nextLine()));
+
+        System.out.print(" y= ");
+
+        p2.setY(Integer.valueOf(sc.nextLine()));
+
+        System.out.printf("La distance entre P1 et P2 est : %.5f",p1.calculerDistance(p2));
     }
 }
 

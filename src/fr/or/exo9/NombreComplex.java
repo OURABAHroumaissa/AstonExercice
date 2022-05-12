@@ -2,6 +2,7 @@ package fr.or.exo9;
 
 public class NombreComplex {
     private int partieReelle;
+
     private int partieImaginaire;
 
     public NombreComplex() {
