@@ -1,6 +1,7 @@
 import fr.or.dao.Profit;
 import fr.or.exo7.Somme;
 import fr.or.exo8.Student;
+import fr.or.exo9.NombreComplex;
 import fr.or.tools.Tools;
 
 import java.util.Scanner;
@@ -36,6 +37,8 @@ public class Main {
 
         System.out.println("Le résultat est : "+sm.Sum());*/
 
+
+/*           exercice 08
         Student st = new Student();
 
         Scanner sc = new Scanner(System.in);
@@ -58,7 +61,21 @@ public class Main {
 
         st.setNotes(notes);
 
-        st.show();
+        st.show();*/
+
+
+        NombreComplex nb1 = new NombreComplex();
+        NombreComplex nb2 = new NombreComplex();
+
+        System.out.println("Premier Nombre ");
+        nb1.setPartieReelle(Tools.saisirNombre("Veuillez entrer la partie Réelle : "));
+        nb1.setPartieImaginaire(Tools.saisirNombre("Veuillez entrer la partie Imaginaire : "));
+
+        System.out.println("Deuxieme Nombre ");
+        nb2.setPartieReelle(Tools.saisirNombre("Veuillez entrer la partie Réelle : "));
+        nb2.setPartieImaginaire(Tools.saisirNombre("Veuillez entrer la partie Imaginaire : "));
+
+        nb1.claculSomme(nb2);
     }
 }
 
