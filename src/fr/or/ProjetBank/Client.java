@@ -1,6 +1,8 @@
 package fr.or.ProjetBank;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Client implements IClient{
@@ -23,7 +25,7 @@ public class Client implements IClient{
     /**
      * Le tableau des Comptes Client
      */
-    private Compte[] tabComptes;
+    private List<Compte> tabComptes;
 
     public Client() {
     }
@@ -33,7 +35,7 @@ public class Client implements IClient{
         this.prenom = prenom;
         this.age = age;
         this.numero = numero;
-        this.tabComptes = new Compte[5];
+        this.tabComptes = new ArrayList<>();
     }
 
     public String getNom() {
@@ -68,33 +70,26 @@ public class Client implements IClient{
         this.numero = numero;
     }
 
-    public Compte[] getTabComptes() {
+    public List<Compte> getTabComptes() {
         return tabComptes;
     }
 
 
 
     public Compte getCompte(int index){
-        return tabComptes[index];
+        return tabComptes.get(index);
     }
 
-    public void setTabComptes(Compte[] tabComptes) {
+    public void setTabComptes(List<Compte> tabComptes) {
         this.tabComptes = tabComptes;
     }
 
     @Override
-    public void ajouterCompte(Compte compte) {
-        int i = getIndexLibre();
+    public void ajouterCompte(Compte compte) throws Exception {
+        int i = tabComptes.size();
 
-        if (i<getTabComptes().length)
-            this.tabComptes[i] = compte;
-    }
-
-    private int getIndexLibre() {
-        int i=0;
-        for (Object o : tabComptes) // pour chaque objet o de monTableau
-            if (o!=null) i++;
-        return i;
+        if (i>5) throw new Exception("Vous avez deja 5 compte");
+        tabComptes.add(i,compte);
     }
 
     @Override
@@ -104,7 +99,7 @@ public class Client implements IClient{
                 ", prenom='" + prenom + '\'' +
                 ", age=" + age +
                 ", numero=" + numero +
-                ", tabComptes=" + Arrays.toString(tabComptes) +
+                ", tabComptes=" + tabComptes +
                 '}';
     }
 
@@ -113,13 +108,11 @@ public class Client implements IClient{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return age == client.age && numero == client.numero && Objects.equals(nom, client.nom) && Objects.equals(prenom, client.prenom) && Arrays.equals(tabComptes, client.tabComptes);
+        return age == client.age && numero == client.numero && Objects.equals(nom, client.nom) && Objects.equals(prenom, client.prenom) && Objects.equals(tabComptes, client.tabComptes);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(nom, prenom, age, numero);
-        result = 31 * result + Arrays.hashCode(tabComptes);
-        return result;
+        return Objects.hash(nom, prenom, age, numero, tabComptes);
     }
 }
