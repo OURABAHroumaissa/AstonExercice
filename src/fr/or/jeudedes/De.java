@@ -2,10 +2,10 @@ package fr.or.jeudedes;
 
 import java.util.Random;
 
-public class de {
+public class De implements IJouer{
     private int valeur;
 
-    public de() {
+    public De() {
         valeur=0;
     }
 

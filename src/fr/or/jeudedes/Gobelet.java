@@ -1,20 +1,36 @@
 package fr.or.jeudedes;
 
-public class Gobelet {
-    public static int valeur;
-    private de[] des;
+import java.util.Random;
+
+public class Gobelet implements IJouer{
+    public int valeur;
+    private De[] des;
 
     public Gobelet(int nb_des) {
         valeur = 0;
-        des = new de[nb_des];
+        des = new De[nb_des];
     }
 
-    public static int getValeur() {
+    public int getValeur() {
         return valeur;
     }
 
-    public void lancer(){
-        valeur++;
+    public De[] getDes() {
+        return des;
+    }
 
+    public void lancer() throws Exception {
+        if(valeur>= des.length) throw new Exception("Vos avez plus droit");
+        De de = new De();
+        de.lancer();
+        des[valeur]=de;
+        valeur++;
+    }
+
+    public void afficheScore(){
+        if(valeur != 0)
+            System.out.println("Le dernier score est : "+des[valeur-1].getValeur());
+        else
+            System.out.println("Aucun lancer n a été fait");
     }
 }
