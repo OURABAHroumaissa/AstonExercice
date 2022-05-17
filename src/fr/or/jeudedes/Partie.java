@@ -34,10 +34,10 @@ public class Partie{
     public void afficheGagnant(){
         Joueur gagant=null;
 
-        if(tabJoueurs.size() != 0) {
+        if(tabJoueurs.size() != 0) { // Verifier si il y a au moins un joueur dans la liste
             for (Joueur joueur : tabJoueurs
             ) {
-                if (gagant == null || joueur.get_score() > gagant.get_score())
+                if (gagant == null || joueur.get_score() > gagant.get_score()) // Si gagnant null donc le premier joueur trouver c est le gagnat et on le remplace avec le joueur avec le score le plus elevé au fur et à mesure
                     gagant = joueur;
             }
             System.out.println(gagant);
