@@ -28,6 +28,7 @@ public class Client implements IClient{
     private List<Compte> tabComptes;
 
     public Client() {
+        this.tabComptes = new ArrayList<>();
     }
 
     public Client(String nom, String prenom, int age, int numero) {
@@ -69,15 +70,20 @@ public class Client implements IClient{
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
+    @Override
     public List<Compte> getTabComptes() {
         return tabComptes;
     }
 
 
-
-    public Compte getCompte(int index){
-        return tabComptes.get(index);
+    @Override
+    public Compte getCompte(int nuNUm){
+        Compte result = null;
+        for (Compte compte: tabComptes) {
+            if(nuNUm == compte.getNumCompte())
+                result = compte;
+        }
+        return result;
     }
 
     public void setTabComptes(List<Compte> tabComptes) {
@@ -89,7 +95,7 @@ public class Client implements IClient{
         int i = tabComptes.size();
 
         if (i>5) throw new Exception("Vous avez deja 5 compte");
-        tabComptes.add(i,compte);
+        tabComptes.add(compte);
     }
 
     @Override
