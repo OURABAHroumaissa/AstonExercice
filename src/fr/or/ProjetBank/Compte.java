@@ -60,8 +60,8 @@ public class Compte implements ICompte{
      * @param unMontant
      */
     @Override
-    public void retirer(double unMontant) throws Exception {
-        if(solde-unMontant<0) throw  new Exception("Votre solde est insuffisant");
+    public void retirer(double unMontant) throws BanqueException  {
+        if(solde-unMontant<0) throw  new BanqueException ("Votre solde est insuffisant");
         solde-=unMontant;
 
     }

@@ -91,10 +91,10 @@ public class Client implements IClient{
     }
 
     @Override
-    public void ajouterCompte(Compte compte) throws Exception {
+    public void ajouterCompte(Compte compte) throws BanqueException {
         int i = tabComptes.size();
 
-        if (i>5) throw new Exception("Vous avez deja 5 compte");
+        if (i>5) throw new BanqueException ("Vous avez deja 5 compte");
         tabComptes.add(compte);
     }
 

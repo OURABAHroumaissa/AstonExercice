@@ -39,4 +39,11 @@ public class CompteRemunere extends Compte implements IRemunere{
     public void verserInterets() {
         super.ajouter(calculerInterets());
     }
+
+    public void ajouter(double unMontant){
+        super.ajouter(unMontant);
+    }
+    public void retirer(double unMontant) throws BanqueException  {
+        super.retirer(unMontant);
+    }
 }

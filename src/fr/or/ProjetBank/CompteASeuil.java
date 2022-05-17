@@ -36,8 +36,9 @@ public class CompteASeuil extends Compte implements ICompteASeuil{
         return reponse;
     }
     @Override
-    public void retirer(double uneValeur) throws Exception {
-        if (!verifier(uneValeur)) throw new Exception("Depacement du seuil");
+    public void retirer(double uneValeur) throws BanqueException  {
+        if (!verifier(uneValeur)) throw new BanqueException ("Depacement du seuil");
         super.retirer(uneValeur);
     }
+
 }

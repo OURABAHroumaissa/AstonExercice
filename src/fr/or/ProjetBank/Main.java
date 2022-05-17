@@ -25,6 +25,8 @@ public class Main {
                 System.out.println("solde"+cs.getSolde());
                 cs.retirer(5);
                 System.out.println("solde"+cs.getSolde());
+                CompteASeuilRemunere car = new CompteASeuilRemunere(112233,43.12,12);
+                car.verserInterets();
             }
             catch (Exception e){
                 System.out.println(e);
